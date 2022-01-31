@@ -16,17 +16,6 @@ function App() {
     }
   };
 
-  const createNumbers = () => {
-    const numbers = [];
-    for (let i = 1; i < 10; i++) {
-      numbers.push(
-        <button onClick={() => updateCalculatorHandler(i.toString())} key={i}>
-          {i}
-        </button>
-      );
-    }
-    return numbers;
-  };
 
   const equalsToHandler = () => {
     // eslint-disable-next-line no-eval
@@ -34,16 +23,15 @@ function App() {
   };
 
   const deleteNumbersHandler = () => {
-    if (!isCalculating) return;
-    const value = isCalculating.slice(0, -1);
-    setIsCalculating(value);
+     setResults("");
+    setIsCalculating("");
   };
 
   return (
     <div className="App">
       <div className="calculator">
-        <div className="display">
-          {results ? <span>({results})</span> : ""}
+        <div className="screen">
+          {results && <span>({results})</span>}
           {isCalculating || 0}
         </div>
         <div className="operators">
@@ -54,14 +42,23 @@ function App() {
           <button onClick={deleteNumbersHandler}>DEL</button>
         </div>
         <div className="numbers">
-          {createNumbers()}
+          
           <button onClick={() => updateCalculatorHandler("0")}>0</button>
+          <button onClick={() => updateCalculatorHandler("1")}>1</button>
+          <button onClick={() => updateCalculatorHandler("2")}>2</button>
+          <button onClick={() => updateCalculatorHandler("3")}>3</button>
+          <button onClick={() => updateCalculatorHandler("4")}>4</button>
+          <button onClick={() => updateCalculatorHandler("5")}>5</button>
+          <button onClick={() => updateCalculatorHandler("6")}>6</button>
+          <button onClick={() => updateCalculatorHandler("7")}>7</button>
+          <button onClick={() => updateCalculatorHandler("8")}>8</button>
+          <button onClick={() => updateCalculatorHandler("9")}>9</button>
           <button onClick={() => updateCalculatorHandler(".")}>.</button>
           <button onClick={equalsToHandler}>=</button>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default App;
