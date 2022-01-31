@@ -52,7 +52,7 @@ button:hover {
 
 .operators button {
   flex: 1 1 0%;
-  background-color: rgb(230, 122, 22);
+  background-color: gray;
   font-weight: 600;
 }
 
